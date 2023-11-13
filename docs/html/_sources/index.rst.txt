@@ -10,6 +10,8 @@ Welcome to GridWorkbench's documentation!
 It contains functionality to import and export data from PowerWorld Simulator using
 `Easy Sim Auto <https://mzy2240.github.io/ESA/html/index.html>`_.
 
+The github page for GWB Documentation can be found here: `GWB Github Page <https://github.com/joshua-x-7/GridWorkbench>`_
+
 Contents
 --------
 .. toctree::
