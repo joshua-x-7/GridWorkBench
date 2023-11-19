@@ -1,10 +1,11 @@
 GWB Documentation
 ===================
+Use this documentation to get more in-depth information about GWB.
 
 The GWB Object
 --------------------------
 
-In this tutorial, we assume that a GWB object named *wb* has already been created.
+In this documentation, we assume that a GWB object named *wb* has already been created.
 
 To open up a PowerWorld case, use the ``wb.open_pwb()`` function:
 
@@ -12,7 +13,7 @@ To open up a PowerWorld case, use the ``wb.open_pwb()`` function:
 
    Open up a PowerWorld case.
 
-   :param fileName: directory to the PowerWorld case.
+   :param fileName: Directory to the PowerWorld case.
    :type kind: str
    :return: None
    :rtype: None
@@ -23,8 +24,192 @@ To read in a PowerWorld case, use the ``wb.pwb_read_all()`` function. Make sure 
 
    Read in a PowerWorld case.
 
-   :param hush: a control to turn on or off default printout after reading in the case. set to True to turn off printout-it's set to False by default. Recommended to set to True if calling this function many times to avoid cluttered printout.
+   :param hush: A control to turn on or off default printout after reading in the case. set to True to turn off printout-it's set to False by default. Recommended to set to True if calling this function many times to avoid cluttered printout.
    :type kind: bool
    :return: None
    :rtype: None
 
+To send changes to the local PowerWorld case being used, use the ``wb.pwb_write_all()`` function.
+
+.. py:function:: wb.pwb_write_all()
+
+   Send changes to local PowerWorld case.
+
+   :return: None
+   :rtype: None
+
+
+To save changes to the local PowerWorld case, use the ``wb.esa.SaveCase()`` function.
+
+.. py:function:: wb.esa.SaveCase(fname)
+
+   Save a copy of the local PowerWorld case to a new one.
+
+   :param fname: The directory to the new PowerWorld case.
+   :type kind: str
+   :return: None
+   :rtype: None
+
+To close a PowerWorld case, use the ``wb.close_pwb()`` function. After closing a PowerWorld case, a new one can be opened in the same script.
+
+.. py:function:: wb.close_pwb()
+
+   Close the current PowerWorld case.
+
+   :return: None
+   :rtype: None
+
+**The following sections give more information about the container objects in GWB.** To see the hierarchy of the objects, check out :ref:`this <container>` section in the :doc:`tutorial` for more information.
+
+.. _region:
+
+Region Objects
+----------------------
+
+A region is a very large portion of the power system. Most grids will only have one region. Regions can be accessed by their number or iterated over using the GWB object.
+
+Here are some of the fields that area objects have:
+
+* areas - all the areas that are contained in the region
+* branches - all the branch objects contained in the region
+* buses - all the bus objects that are contained in the region
+* gens - all the generator objects that are contained in the region
+* loads - all the load objects that are contained in the region
+* number - the number of the region
+* shunts - all the shunts that are contained in the region
+* subs - all the substation objects that are contained in the region
+* wb - the GWB object
+
+.. _area:
+
+Area Objects
+--------------------
+
+Area objects comprise a large part of the power system, but are smaller than regions. They can be accessed by their number, through the workbench object, or a region object.
+
+Here are some of the fields that areas objects have:
+
+* branches - all the branch objects contained in the area
+* buses - all the bus objects that are contained in the area
+* gens - all the generator objects that are contained in the area
+* loads - all the load objects that are contained in the area
+* number - the number of the area
+* region - the region that contains the area
+* shunts - all the shunts that are contained in the area
+* subs - all the substation objects that are contained in the area
+* wb - the GWB object
+
+.. _sub:
+
+Substation Objects
+----------------------------
+
+Substation objects represent substations in the power grid. They can be accessed by their number, through their containing area, or through the workbench object.
+
+Here are some of the fields that substation objects have:
+
+* area - the area that contains the substation
+* branches - all the branch objects contained in the substation
+* buses - all the bus objects that are contained in the substation
+* gens - all the generator objects that are contained in the substation
+* latitude - latitude of the substation (some substations may not have a latitude and a longitude)
+* longitude - longitude of the substation
+* name - name of the substation
+* number - number of the substation
+* region - the region that contains the substation
+* shunts - all the shunts that are contained in the substation
+* wb - the GWB object
+
+.. _bus:
+
+Bus Objects
+------------------
+
+Buses represent electrical points in a power system, and can hold other grid objects.
+
+Here are some of the fields that bus objects have:
+
+* area - the area that contains the bus
+* branches - all the branches contained in the bus
+* gens - all the generator objects contained in the bus
+* loads - all the load objects contained in the bus
+* nominal_kv - the nominal voltage of the bus in kilovolts
+* name - name of the bus
+* number - number of the bus
+* region - the region that contains the bus
+* shunts - all the shunts contained in the bus
+* sub - the substation that contains the bus
+* vang - the bus' voltage angle in degrees
+* vpu - the bus' per-unit voltage
+* wb - the GWB object
+* zone_number - zone number of the bus
+
+.. _gen:
+
+Generator Objects
+---------------------------
+
+Generator objects represent generators in a power system. They have real and reactive power.
+
+Here are some of the fields that generators have:
+
+* bus - the bus containing the generator
+* fuel_type - the type of generation (wind, solar, etc)
+* id - the generator's ID
+* p - real power of the generator
+* pmax - maximum real power of the generator
+* pmin - minimum real power of the generator
+* q - reactive power of the generator
+* qmax - maximum reactive power of the generator
+* qmin - minimum reactive power of the generator
+* sbase - the apparent power base of the generator
+* status - status of the generator (tells if the generator is open or closed)
+
+.. _load:
+
+Load Objects
+--------------------
+
+Load objects represent loads in a power system.
+
+Here are some of the fields that loads have:
+
+* bus - the bus containing the load
+* id - the load's ID
+* p - the load's real power
+* q - the load's reactive power
+* status - the status of the load (open or closed)
+
+.. _shunt:
+
+Shunt Objects
+--------------------
+
+Shunt objects represent shunts in a power system.
+
+Here are some of the fields that shunts have:
+
+* bus - the bus that contains the shunt
+* id - the shunt's ID
+* q - reactive power of the shunt
+* qnom - nominal reactive power of the shunt
+* status - the status of the shunt (open or closed)
+
+.. _branch:
+
+Branch Objects
+----------------------
+
+Branch objects  represent two-node objects such as transmission lines and transformers.
+
+Here are some of the fields that branches have:
+
+* B - per-unit susceptance
+* G - per-unit conductance
+* R - per-unit resistance
+* X - per-unit reactance
+* branch_device_type - the branch device type (transformer or transmission line)
+* from_bus - the bus on the "from" side of the branch
+* to_bus - the bus on the "to" side of the branch
+* id - the branch's circuit number
+* length - straight-line distance between "from" and "to" busses in miles

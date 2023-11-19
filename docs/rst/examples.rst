@@ -13,7 +13,7 @@ This example illustrates how to do the following in GWB:
 
 In this example, the Hawaii 37 bus synthetic case will be used. It can be downloaded here: `Electric Grid Test Case Repository <https://electricgrids.engr.tamu.edu/>`_.
 
-First create a GWB object and read in a PowerWorld case. Check out :ref:`this <reading>` section in the :doc:`tutorial` to see this is done.
+First create a GWB object and read in a PowerWorld case. Check out :ref:`this <reading>` section in the :doc:`tutorial` to see how this is done.
 
 .. code-block:: console
 
