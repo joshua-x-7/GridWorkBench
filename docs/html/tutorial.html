@@ -132,7 +132,7 @@
 <p>A GWB object must be created before trying to access data from the PowerWorld case. Additionally, all data from the PowerWorld case must be accessed through the GWB object. The PowerWorld case used in these blocks of code can be downloaded here: <a class="reference external" href="https://electricgrids.engr.tamu.edu/">Electric Grid Test Case Repository</a>.</p>
 </section>
 <section id="container-objects">
-<h2>Container Objects<a class="headerlink" href="#container-objects" title="Link to this heading"></a></h2>
+<span id="container"></span><h2>Container Objects<a class="headerlink" href="#container-objects" title="Link to this heading"></a></h2>
 <p>GWB is organized into a hierarchy of containers, and each level may contain zero, one, or multiple containers of lower level/levels. The hierarchy from highest to lowest can be seen below. GWB allows users to move up and down the hierarchy. For instance, if the user has a bus object, they can use the bus’s substation object to access its area object, which gives access to the region that the bus is in.</p>
 <figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="_images/Layout.png"><img alt="GWB Hierarchy" src="_images/Layout.png" style="width: 400px;" /></a>
@@ -158,7 +158,7 @@
 </section>
 <section id="region-objects">
 <h2>Region Objects<a class="headerlink" href="#region-objects" title="Link to this heading"></a></h2>
-<p>A region is a very large portion of the power system. Most grids will only have one region. Regions can be accessed by their number or iterated over using the GWB object.</p>
+<p>A region is a very large portion of the power system. Most grids will only have one region. Regions can be accessed by their number or iterated over using the GWB object. Check out <a class="reference internal" href="documentation.html#region"><span class="std std-ref">this</span></a> section in the <a class="reference internal" href="documentation.html"><span class="doc">GWB Documentation</span></a> for more information.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Access<span class="w"> </span>region<span class="w"> </span>by<span class="w"> </span>its<span class="w"> </span>number
 <span class="go">print(wb.region(1))</span>
 
@@ -170,7 +170,7 @@
 </section>
 <section id="area-objects">
 <h2>Area Objects<a class="headerlink" href="#area-objects" title="Link to this heading"></a></h2>
-<p>Area objects comprise a large part of the power system, but are smaller than regions. They can be accessed by their number, through the workbench object, or a region object:</p>
+<p>Area objects comprise a large part of the power system, but are smaller than regions. They can be accessed by their number, through the workbench object, or a region object. Check out <a class="reference internal" href="documentation.html#area"><span class="std std-ref">this</span></a> section in the <a class="reference internal" href="documentation.html"><span class="doc">GWB Documentation</span></a> for more information.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Access<span class="w"> </span>area<span class="w"> </span>by<span class="w"> </span>number
 <span class="go">areaObject = wb.area(1)</span>
 
@@ -188,7 +188,7 @@
 </section>
 <section id="substation-objects">
 <h2>Substation Objects<a class="headerlink" href="#substation-objects" title="Link to this heading"></a></h2>
-<p>Substations can be accessed by number, through their containing area, or through the workbench object. Its main attributes are buses (a list containing all the buses inside the substation), name, and number.</p>
+<p>Substations can be accessed by number, through their containing area, or through the workbench object. Its main attributes are buses (a list containing all the buses inside the substation), name, and number. Check out <a class="reference internal" href="documentation.html#sub"><span class="std std-ref">this</span></a> section in the <a class="reference internal" href="documentation.html"><span class="doc">GWB Documentation</span></a> for more information.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Access<span class="w"> </span>substation<span class="w"> </span>by<span class="w"> </span>number
 <span class="go">substationObject = wb.sub(2)</span>
 
@@ -206,7 +206,7 @@
 </section>
 <section id="bus-objects">
 <h2>Bus Objects<a class="headerlink" href="#bus-objects" title="Link to this heading"></a></h2>
-<p>Buses represent electrical points in a power system. They can hold other grid objects, such as generators, loads, shunts, and branches. Buses can be accessed by their number, by iterating through substations, or by iterating through the GWB object. Its main attributes are name, number, nominal voltage, and their attached objects (generators, loads, shunts, and branches).</p>
+<p>Buses represent electrical points in a power system. They can hold other grid objects, such as generators, loads, shunts, and branches. Buses can be accessed by their number, by iterating through substations, or by iterating through the GWB object. Its main attributes are name, number, nominal voltage, and their attached objects (generators, loads, shunts, and branches). Check out <a class="reference internal" href="documentation.html#bus"><span class="std std-ref">this</span></a> section in the <a class="reference internal" href="documentation.html"><span class="doc">GWB Documentation</span></a> for more information.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Access<span class="w"> </span>bus<span class="w"> </span>by<span class="w"> </span>number
 <span class="go">busObject = wb.bus(1)</span>
 
@@ -225,7 +225,7 @@
 </section>
 <section id="generator-objects">
 <h2>Generator Objects<a class="headerlink" href="#generator-objects" title="Link to this heading"></a></h2>
-<p>The most common ways to access generator objects is through their buses or through the GWB object. Their most common attributes are power, reactive power, ID, and fuel type.</p>
+<p>The most common ways to access generator objects is through their buses or through the GWB object. Their most common attributes are power, reactive power, ID, and fuel type. Check out <a class="reference internal" href="documentation.html#gen"><span class="std std-ref">this</span></a> section in the <a class="reference internal" href="documentation.html"><span class="doc">GWB Documentation</span></a> for more information.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Access<span class="w"> </span>generators<span class="w"> </span>by<span class="w"> </span>iterating<span class="w"> </span>through<span class="w"> </span>buses
 <span class="go">for bus in wb.buses:</span>
 <span class="go">    for gen in bus.gens:</span>
@@ -242,7 +242,7 @@
 </section>
 <section id="load-objects">
 <h2>Load Objects<a class="headerlink" href="#load-objects" title="Link to this heading"></a></h2>
-<p>The most common ways to access load objects is through their buses or through the GWB object. The main load attributes are real power, reactive power, id, and status (returns a Boolean indicating whether or not the load is open or closed: True if load is closed, False if open).</p>
+<p>The most common ways to access load objects is through their buses or through the GWB object. The main load attributes are real power, reactive power, id, and status (returns a Boolean indicating whether or not the load is open or closed: True if load is closed, False if open). Check out <a class="reference internal" href="documentation.html#load"><span class="std std-ref">this</span></a> section in the <a class="reference internal" href="documentation.html"><span class="doc">GWB Documentation</span></a> for more information.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Access<span class="w"> </span>loads<span class="w"> </span>by<span class="w"> </span>iterating<span class="w"> </span>through<span class="w"> </span>buses
 <span class="go">for bus in wb.buses:</span>
 <span class="go">    for load in bus.loads:</span>
@@ -259,7 +259,7 @@
 </section>
 <section id="shunt-objects">
 <h2>Shunt Objects<a class="headerlink" href="#shunt-objects" title="Link to this heading"></a></h2>
-<p>Shunt objects can be accessed through their buses or through the GWB object. The attributes of shunts can be determined by using the <em>dir()</em> function.</p>
+<p>Shunt objects can be accessed through their buses or through the GWB object. The attributes of shunts can be determined by using the <em>dir()</em> function. Check out <a class="reference internal" href="documentation.html#shunt"><span class="std std-ref">this</span></a> section in the <a class="reference internal" href="documentation.html"><span class="doc">GWB Documentation</span></a> for more information.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Access<span class="w"> </span>shunts<span class="w"> </span>through<span class="w"> </span>GWB<span class="w"> </span>object
 <span class="go">for shunt in wb.shunts:</span>
 <span class="go">    print(&quot;Shunt reactive power =&quot;, shunt.q)    # Access reactive power</span>
@@ -268,7 +268,7 @@
 </section>
 <section id="branch-objects">
 <h2>Branch Objects<a class="headerlink" href="#branch-objects" title="Link to this heading"></a></h2>
-<p>Branch objects can represent two-node objects such as transmission lines and transformers. Most branch objects will be transmission lines and some will be transformers. It is possible to access branches from any container, but it is most useful to access them from their buses since two buses are connected by a branch. Branches can also be accessed through the GWB object. Their most commonly used attributes are susceptance, conductance, power ratings, resistance, inductance, from bus, to bus, and branch_device_type.</p>
+<p>Branch objects can represent two-node objects such as transmission lines and transformers. Most branch objects will be transmission lines and some will be transformers. It is possible to access branches from any container, but it is most useful to access them from their buses since two buses are connected by a branch. Branches can also be accessed through the GWB object. Their most commonly used attributes are susceptance, conductance, power ratings, resistance, inductance, from bus, to bus, and branch_device_type. Check out <a class="reference internal" href="documentation.html#branch"><span class="std std-ref">this</span></a> section in the <a class="reference internal" href="documentation.html"><span class="doc">GWB Documentation</span></a> for more information.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Access<span class="w"> </span>branches<span class="w"> </span>by<span class="w"> </span>iterating<span class="w"> </span>through<span class="w"> </span>buses
 <span class="go">for bus in wb.buses:</span>
 <span class="go">    for branch in bus.branches:</span>

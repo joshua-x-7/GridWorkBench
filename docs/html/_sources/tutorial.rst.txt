@@ -51,6 +51,8 @@ An alternative, more explicit method to open and read in a PowerWorld case is sh
 
 A GWB object must be created before trying to access data from the PowerWorld case. Additionally, all data from the PowerWorld case must be accessed through the GWB object. The PowerWorld case used in these blocks of code can be downloaded here: `Electric Grid Test Case Repository <https://electricgrids.engr.tamu.edu/>`_.
 
+.. _container:
+
 Container Objects
 ----------------------------
 
@@ -85,7 +87,7 @@ Output of the code above is seen below:
 Region Objects
 ----------------------
 
-A region is a very large portion of the power system. Most grids will only have one region. Regions can be accessed by their number or iterated over using the GWB object.
+A region is a very large portion of the power system. Most grids will only have one region. Regions can be accessed by their number or iterated over using the GWB object. Check out :ref:`this <region>` section in the :doc:`documentation` for more information.
 
 .. code-block:: console
 
@@ -99,7 +101,7 @@ A region is a very large portion of the power system. Most grids will only have 
 Area Objects
 --------------------
 
-Area objects comprise a large part of the power system, but are smaller than regions. They can be accessed by their number, through the workbench object, or a region object:
+Area objects comprise a large part of the power system, but are smaller than regions. They can be accessed by their number, through the workbench object, or a region object. Check out :ref:`this <area>` section in the :doc:`documentation` for more information.
 
 .. code-block:: console
 
@@ -119,7 +121,7 @@ Area objects comprise a large part of the power system, but are smaller than reg
 Substation Objects
 ----------------------------
 
-Substations can be accessed by number, through their containing area, or through the workbench object. Its main attributes are buses (a list containing all the buses inside the substation), name, and number.
+Substations can be accessed by number, through their containing area, or through the workbench object. Its main attributes are buses (a list containing all the buses inside the substation), name, and number. Check out :ref:`this <sub>` section in the :doc:`documentation` for more information.
 
 .. code-block:: console
 
@@ -139,7 +141,7 @@ Substations can be accessed by number, through their containing area, or through
 Bus Objects
 ------------------
 
-Buses represent electrical points in a power system. They can hold other grid objects, such as generators, loads, shunts, and branches. Buses can be accessed by their number, by iterating through substations, or by iterating through the GWB object. Its main attributes are name, number, nominal voltage, and their attached objects (generators, loads, shunts, and branches).
+Buses represent electrical points in a power system. They can hold other grid objects, such as generators, loads, shunts, and branches. Buses can be accessed by their number, by iterating through substations, or by iterating through the GWB object. Its main attributes are name, number, nominal voltage, and their attached objects (generators, loads, shunts, and branches). Check out :ref:`this <bus>` section in the :doc:`documentation` for more information.
 
 .. code-block:: console
 
@@ -160,7 +162,7 @@ Buses represent electrical points in a power system. They can hold other grid ob
 Generator Objects
 ---------------------------
 
-The most common ways to access generator objects is through their buses or through the GWB object. Their most common attributes are power, reactive power, ID, and fuel type.
+The most common ways to access generator objects is through their buses or through the GWB object. Their most common attributes are power, reactive power, ID, and fuel type. Check out :ref:`this <gen>` section in the :doc:`documentation` for more information.
 
 .. code-block:: console
 
@@ -179,7 +181,7 @@ The most common ways to access generator objects is through their buses or throu
 Load Objects
 --------------------
 
-The most common ways to access load objects is through their buses or through the GWB object. The main load attributes are real power, reactive power, id, and status (returns a Boolean indicating whether or not the load is open or closed: True if load is closed, False if open).
+The most common ways to access load objects is through their buses or through the GWB object. The main load attributes are real power, reactive power, id, and status (returns a Boolean indicating whether or not the load is open or closed: True if load is closed, False if open). Check out :ref:`this <load>` section in the :doc:`documentation` for more information.
 
 .. code-block:: console
 
@@ -198,7 +200,7 @@ The most common ways to access load objects is through their buses or through th
 Shunt Objects
 --------------------
 
-Shunt objects can be accessed through their buses or through the GWB object. The attributes of shunts can be determined by using the *dir()* function.
+Shunt objects can be accessed through their buses or through the GWB object. The attributes of shunts can be determined by using the *dir()* function. Check out :ref:`this <shunt>` section in the :doc:`documentation` for more information.
 
 .. code-block:: console
 
@@ -209,7 +211,7 @@ Shunt objects can be accessed through their buses or through the GWB object. The
 Branch Objects
 ----------------------
 
-Branch objects can represent two-node objects such as transmission lines and transformers. Most branch objects will be transmission lines and some will be transformers. It is possible to access branches from any container, but it is most useful to access them from their buses since two buses are connected by a branch. Branches can also be accessed through the GWB object. Their most commonly used attributes are susceptance, conductance, power ratings, resistance, inductance, from bus, to bus, and branch_device_type.
+Branch objects can represent two-node objects such as transmission lines and transformers. Most branch objects will be transmission lines and some will be transformers. It is possible to access branches from any container, but it is most useful to access them from their buses since two buses are connected by a branch. Branches can also be accessed through the GWB object. Their most commonly used attributes are susceptance, conductance, power ratings, resistance, inductance, from bus, to bus, and branch_device_type. Check out :ref:`this <branch>` section in the :doc:`documentation` for more information.
 
 .. code-block:: console
 

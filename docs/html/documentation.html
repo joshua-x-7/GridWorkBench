@@ -48,8 +48,19 @@
 <li class="toctree-l2"><a class="reference internal" href="#the-gwb-object">The GWB Object</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#wb.open_pwb"><code class="docutils literal notranslate"><span class="pre">wb.open_pwb()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#wb.pwb_read_all"><code class="docutils literal notranslate"><span class="pre">wb.pwb_read_all()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wb.pwb_write_all"><code class="docutils literal notranslate"><span class="pre">wb.pwb_write_all()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wb.esa.SaveCase"><code class="docutils literal notranslate"><span class="pre">wb.esa.SaveCase()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wb.close_pwb"><code class="docutils literal notranslate"><span class="pre">wb.close_pwb()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#region-objects">Region Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#area-objects">Area Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#substation-objects">Substation Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bus-objects">Bus Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generator-objects">Generator Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#load-objects">Load Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shunt-objects">Shunt Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#branch-objects">Branch Objects</a></li>
 </ul>
 </li>
 </ul>
@@ -80,9 +91,10 @@
              
   <section id="gwb-documentation">
 <h1>GWB Documentation<a class="headerlink" href="#gwb-documentation" title="Link to this heading"></a></h1>
+<p>Use this documentation to get more in-depth information about GWB.</p>
 <section id="the-gwb-object">
 <h2>The GWB Object<a class="headerlink" href="#the-gwb-object" title="Link to this heading"></a></h2>
-<p>In this tutorial, we assume that a GWB object named <em>wb</em> has already been created.</p>
+<p>In this documentation, we assume that a GWB object named <em>wb</em> has already been created.</p>
 <p>To open up a PowerWorld case, use the <code class="docutils literal notranslate"><span class="pre">wb.open_pwb()</span></code> function:</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="wb.open_pwb">
@@ -90,7 +102,7 @@
 <dd><p>Open up a PowerWorld case.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>fileName</strong> – directory to the PowerWorld case.</p>
+<dd class="field-odd"><p><strong>fileName</strong> – Directory to the PowerWorld case.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -108,7 +120,7 @@
 <dd><p>Read in a PowerWorld case.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>hush</strong> – a control to turn on or off default printout after reading in the case. set to True to turn off printout-it’s set to False by default. Recommended to set to True if calling this function many times to avoid cluttered printout.</p>
+<dd class="field-odd"><p><strong>hush</strong> – A control to turn on or off default printout after reading in the case. set to True to turn off printout-it’s set to False by default. Recommended to set to True if calling this function many times to avoid cluttered printout.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -119,6 +131,184 @@
 </dl>
 </dd></dl>
 
+<p>To send changes to the local PowerWorld case being used, use the <code class="docutils literal notranslate"><span class="pre">wb.pwb_write_all()</span></code> function.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="wb.pwb_write_all">
+<span class="sig-prename descclassname"><span class="pre">wb.</span></span><span class="sig-name descname"><span class="pre">pwb_write_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wb.pwb_write_all" title="Link to this definition"></a></dt>
+<dd><p>Send changes to local PowerWorld case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>To save changes to the local PowerWorld case, use the <code class="docutils literal notranslate"><span class="pre">wb.esa.SaveCase()</span></code> function.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="wb.esa.SaveCase">
+<span class="sig-prename descclassname"><span class="pre">wb.esa.</span></span><span class="sig-name descname"><span class="pre">SaveCase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wb.esa.SaveCase" title="Link to this definition"></a></dt>
+<dd><p>Save a copy of the local PowerWorld case to a new one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fname</strong> – The directory to the new PowerWorld case.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>To close a PowerWorld case, use the <code class="docutils literal notranslate"><span class="pre">wb.close_pwb()</span></code> function. After closing a PowerWorld case, a new one can be opened in the same script.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="wb.close_pwb">
+<span class="sig-prename descclassname"><span class="pre">wb.</span></span><span class="sig-name descname"><span class="pre">close_pwb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wb.close_pwb" title="Link to this definition"></a></dt>
+<dd><p>Close the current PowerWorld case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>The following sections give more information about the container objects in GWB.</strong> To see the hierarchy of the objects, check out <a class="reference internal" href="tutorial.html#container"><span class="std std-ref">this</span></a> section in the <a class="reference internal" href="tutorial.html"><span class="doc">Tutorial</span></a> for more information.</p>
+</section>
+<section id="region-objects">
+<span id="region"></span><h2>Region Objects<a class="headerlink" href="#region-objects" title="Link to this heading"></a></h2>
+<p>A region is a very large portion of the power system. Most grids will only have one region. Regions can be accessed by their number or iterated over using the GWB object.</p>
+<p>Here are some of the fields that area objects have:</p>
+<ul class="simple">
+<li><p>areas - all the areas that are contained in the region</p></li>
+<li><p>branches - all the branch objects contained in the region</p></li>
+<li><p>buses - all the bus objects that are contained in the region</p></li>
+<li><p>gens - all the generator objects that are contained in the region</p></li>
+<li><p>loads - all the load objects that are contained in the region</p></li>
+<li><p>number - the number of the region</p></li>
+<li><p>shunts - all the shunts that are contained in the region</p></li>
+<li><p>subs - all the substation objects that are contained in the region</p></li>
+<li><p>wb - the GWB object</p></li>
+</ul>
+</section>
+<section id="area-objects">
+<span id="area"></span><h2>Area Objects<a class="headerlink" href="#area-objects" title="Link to this heading"></a></h2>
+<p>Area objects comprise a large part of the power system, but are smaller than regions. They can be accessed by their number, through the workbench object, or a region object.</p>
+<p>Here are some of the fields that areas objects have:</p>
+<ul class="simple">
+<li><p>branches - all the branch objects contained in the area</p></li>
+<li><p>buses - all the bus objects that are contained in the area</p></li>
+<li><p>gens - all the generator objects that are contained in the area</p></li>
+<li><p>loads - all the load objects that are contained in the area</p></li>
+<li><p>number - the number of the area</p></li>
+<li><p>region - the region that contains the area</p></li>
+<li><p>shunts - all the shunts that are contained in the area</p></li>
+<li><p>subs - all the substation objects that are contained in the area</p></li>
+<li><p>wb - the GWB object</p></li>
+</ul>
+</section>
+<section id="substation-objects">
+<span id="sub"></span><h2>Substation Objects<a class="headerlink" href="#substation-objects" title="Link to this heading"></a></h2>
+<p>Substation objects represent substations in the power grid. They can be accessed by their number, through their containing area, or through the workbench object.</p>
+<p>Here are some of the fields that substation objects have:</p>
+<ul class="simple">
+<li><p>area - the area that contains the substation</p></li>
+<li><p>branches - all the branch objects contained in the substation</p></li>
+<li><p>buses - all the bus objects that are contained in the substation</p></li>
+<li><p>gens - all the generator objects that are contained in the substation</p></li>
+<li><p>latitude - latitude of the substation (some substations may not have a latitude and a longitude)</p></li>
+<li><p>longitude - longitude of the substation</p></li>
+<li><p>name - name of the substation</p></li>
+<li><p>number - number of the substation</p></li>
+<li><p>region - the region that contains the substation</p></li>
+<li><p>shunts - all the shunts that are contained in the substation</p></li>
+<li><p>wb - the GWB object</p></li>
+</ul>
+</section>
+<section id="bus-objects">
+<span id="bus"></span><h2>Bus Objects<a class="headerlink" href="#bus-objects" title="Link to this heading"></a></h2>
+<p>Buses represent electrical points in a power system, and can hold other grid objects.</p>
+<p>Here are some of the fields that bus objects have:</p>
+<ul class="simple">
+<li><p>area - the area that contains the bus</p></li>
+<li><p>branches - all the branches contained in the bus</p></li>
+<li><p>gens - all the generator objects contained in the bus</p></li>
+<li><p>loads - all the load objects contained in the bus</p></li>
+<li><p>nominal_kv - the nominal voltage of the bus in kilovolts</p></li>
+<li><p>name - name of the bus</p></li>
+<li><p>number - number of the bus</p></li>
+<li><p>region - the region that contains the bus</p></li>
+<li><p>shunts - all the shunts contained in the bus</p></li>
+<li><p>sub - the substation that contains the bus</p></li>
+<li><p>vang - the bus’ voltage angle in degrees</p></li>
+<li><p>vpu - the bus’ per-unit voltage</p></li>
+<li><p>wb - the GWB object</p></li>
+<li><p>zone_number - zone number of the bus</p></li>
+</ul>
+</section>
+<section id="generator-objects">
+<span id="gen"></span><h2>Generator Objects<a class="headerlink" href="#generator-objects" title="Link to this heading"></a></h2>
+<p>Generator objects represent generators in a power system. They have real and reactive power.</p>
+<p>Here are some of the fields that generators have:</p>
+<ul class="simple">
+<li><p>bus - the bus containing the generator</p></li>
+<li><p>fuel_type - the type of generation (wind, solar, etc)</p></li>
+<li><p>id - the generator’s ID</p></li>
+<li><p>p - real power of the generator</p></li>
+<li><p>pmax - maximum real power of the generator</p></li>
+<li><p>pmin - minimum real power of the generator</p></li>
+<li><p>q - reactive power of the generator</p></li>
+<li><p>qmax - maximum reactive power of the generator</p></li>
+<li><p>qmin - minimum reactive power of the generator</p></li>
+<li><p>sbase - the apparent power base of the generator</p></li>
+<li><p>status - status of the generator (tells if the generator is open or closed)</p></li>
+</ul>
+</section>
+<section id="load-objects">
+<span id="load"></span><h2>Load Objects<a class="headerlink" href="#load-objects" title="Link to this heading"></a></h2>
+<p>Load objects represent loads in a power system.</p>
+<p>Here are some of the fields that loads have:</p>
+<ul class="simple">
+<li><p>bus - the bus containing the load</p></li>
+<li><p>id - the load’s ID</p></li>
+<li><p>p - the load’s real power</p></li>
+<li><p>q - the load’s reactive power</p></li>
+<li><p>status - the status of the load (open or closed)</p></li>
+</ul>
+</section>
+<section id="shunt-objects">
+<span id="shunt"></span><h2>Shunt Objects<a class="headerlink" href="#shunt-objects" title="Link to this heading"></a></h2>
+<p>Shunt objects represent shunts in a power system.</p>
+<p>Here are some of the fields that shunts have:</p>
+<ul class="simple">
+<li><p>bus - the bus that contains the shunt</p></li>
+<li><p>id - the shunt’s ID</p></li>
+<li><p>q - reactive power of the shunt</p></li>
+<li><p>qnom - nominal reactive power of the shunt</p></li>
+<li><p>status - the status of the shunt (open or closed)</p></li>
+</ul>
+</section>
+<section id="branch-objects">
+<span id="branch"></span><h2>Branch Objects<a class="headerlink" href="#branch-objects" title="Link to this heading"></a></h2>
+<p>Branch objects can represent two-node objects such as transmission lines and transformers.</p>
+<p>Here are some of the fields that branches have:</p>
+<ul class="simple">
+<li><p>B - per-unit susceptance</p></li>
+<li><p>G - per-unit conductance</p></li>
+<li><p>R - per-unit resistance</p></li>
+<li><p>X - per-unit reactance</p></li>
+<li><p>branch_device_type - the branch device type (transformer or transmission line)</p></li>
+<li><p>from_bus - the bus on the “from” side of the branch</p></li>
+<li><p>to_bus - the bus on the “to” side of the branch</p></li>
+<li><p>id - the branch’s circuit number</p></li>
+<li><p>length - straight-line distance between from and to bus in miles</p></li>
+</ul>
 </section>
 </section>
 
