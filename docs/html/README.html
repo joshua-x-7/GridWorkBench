@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Making Changes to GWB Documentation &mdash; GridWorkbench .1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=69a67b7f"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="GWB Documentation" href="documentation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            GridWorkbench
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">GWB Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Making Changes to GWB Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-sphinx">Setting Up Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-to-make-changes">Setting Up to Make Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#making-changes-to-files">Making Changes to Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rebuilding-the-project-implementing-changes">Rebuilding the Project / Implementing Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sending-changes-to-github">Sending Changes To Github</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GridWorkbench</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Making Changes to GWB Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/README.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="making-changes-to-gwb-documentation">
+<h1>Making Changes to GWB Documentation<a class="headerlink" href="#making-changes-to-gwb-documentation" title="Link to this heading"></a></h1>
+<p>Making changes to GWB is not simple. You cannot just edit the files in github: the changes will not be reflected in the webpage.</p>
+<p>This documentation was created using Sphinx documentation and is written in reStructuredText. It could be very helpful to check out the <a class="reference external" href="https://www.sphinx-doc.org/en/master/tutorial/getting-started.html">Sphinx Documentation Tutorial</a> and <a class="reference external" href="https://docutils.sourceforge.io/rst.html#user-documentation/">reStructuredText Documentation</a> to help you understand how to make edits to the documentation.</p>
+<p>GWB documentation is edited by doing the following:</p>
+<ol class="arabic simple">
+<li><p>Download the file you want to change locally (ex: download the examples.rst file if you want to change the “examples” page)</p></li>
+<li><p>Setup Spinx</p></li>
+<li><p>Setup for making changes</p></li>
+<li><p>Make changes to the file</p></li>
+<li><p>Rebuild the project / Implement Changes</p></li>
+<li><p>Send changes to GitHub</p></li>
+</ol>
+<section id="setting-up-sphinx">
+<h2>Setting Up Sphinx<a class="headerlink" href="#setting-up-sphinx" title="Link to this heading"></a></h2>
+<p>Make a new folder to store the documentation. Then, open the command line terminal (this could also be done in the terminal if you have PyCharm). Then, cd into the folder that you just created and run the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; python-m .venv .venv</span>
+<span class="go">&gt; activate</span>
+<span class="go">&gt; python -m pip install sphinx</span>
+<span class="go">&gt; sphinx-quickstart docs</span>
+</pre></div>
+</div>
+<p>You will presented a series of questions to create the basic directory and configuration layout for your project inside the docs folder. To proceed, answer each questions as follows:</p>
+<ul class="simple">
+<li><p>Separate source and build directories (y/n) [n]: Write “y” (without quotes) and press Enter.</p></li>
+<li><p>Project name: Write “GridWorkbench” (without quotes) and press Enter.</p></li>
+<li><p>Author name(s): Write “Joshua Xia” (without quotes) followed by a comma and a space, and your name. Then press Enter.</p></li>
+<li><p>Project release []: Write “0.1” (without quotes) and press Enter.</p></li>
+<li><p>Project language [en]: Leave it empty (the default, English) and press Enter.</p></li>
+</ul>
+<p>Run the following line of code to create an html page:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; sphinx-build -M html docs/source/ docs/build/</span>
+</pre></div>
+</div>
+<p>Consult <a class="reference external" href="https://www.sphinx-doc.org/en/master/tutorial/getting-started.html">Sphinx Documentation Tutorial</a> for more information on setting up Sphinx.</p>
+</section>
+<section id="setting-up-to-make-changes">
+<h2>Setting Up to Make Changes<a class="headerlink" href="#setting-up-to-make-changes" title="Link to this heading"></a></h2>
+<p>The following steps must be done before making changes to files:</p>
+<ul class="simple">
+<li><p>Download the docs folder from GitHub to your computer.</p></li>
+<li><p>Delete everything in the source folder of the project except for the static folder, the templates folder, and conf.py.</p></li>
+<li><p>Transfer all rst files and pictures from the rst folder from the Github page to the local source folder. Do the same with the local rst folder.</p></li>
+<li><p>Delete all files in the local project’s doctrees folder and replace the files with the files from the GitHub doctrees folder.</p></li>
+<li><p>Delete all files in the local html folder in the build folder and replace with the html folder from GitHub.</p></li>
+</ul>
+</section>
+<section id="making-changes-to-files">
+<h2>Making Changes to Files<a class="headerlink" href="#making-changes-to-files" title="Link to this heading"></a></h2>
+<p>Before making any changes to the desired file, put the file to be edited in the “source” folder. Then, open up index.rst, and under <em>.. toctree::</em>, add the name of the file that you just added. For example, if you wanted to make changes to “examples.rst”, then under the toctree section, add a new line with the text “examples”. More information on how to do this can be found here: <a class="reference external" href="https://www.sphinx-doc.org/en/master/tutorial/narrative-documentation.html">Narrative Documentation in Sphinx</a></p>
+<p>The toctree section should look similar to the following:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">.. toctree::</span>
+<span class="go">   tutorial</span>
+<span class="go">   examples</span>
+</pre></div>
+</div>
+<p>Then, open up the file to be edited and make changes. Again, you may find <a class="reference external" href="https://www.sphinx-doc.org/en/master/tutorial/getting-started.html">Sphinx Documentation Tutorial</a> useful for formatting the webpage and for other help.</p>
+</section>
+<section id="rebuilding-the-project-implementing-changes">
+<h2>Rebuilding the Project / Implementing Changes<a class="headerlink" href="#rebuilding-the-project-implementing-changes" title="Link to this heading"></a></h2>
+<p>Once you’ve edited the file, go to the terminal and cd to the “docs” folder. Run the following line of code to implement your changes:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; .\make html</span>
+</pre></div>
+</div>
+<p>Anytime you want to implement the changes you make, cd into the docs folder and rebuild the project (using the code from above).</p>
+</section>
+<section id="sending-changes-to-github">
+<h2>Sending Changes To Github<a class="headerlink" href="#sending-changes-to-github" title="Link to this heading"></a></h2>
+<p>To send the changes to Github, do the following in the GridWorkbench folder in your GitHub desktop folder:</p>
+<ul class="simple">
+<li><p>Empty the doctrees folder in the GitHub desktop folder, and replace with the local doctrees folder under “build.”</p></li>
+<li><p>Empty the html folder in the GitHub desktop folder, and replace with the local html folder under “build.”</p></li>
+<li><p>Empty the rst folder in the GitHub desktop folder, and replace with the local “source” folder. Also copy the makefile from the local docs folder to the GitHub rst folder.</p></li>
+<li><p>Commit and publish changes using GitHub desktop.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="documentation.html" class="btn btn-neutral float-left" title="GWB Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Joshua Xia.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

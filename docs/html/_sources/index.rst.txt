@@ -18,6 +18,7 @@ Contents
    tutorial
    examples
    documentation
+   README
 
 Indices and tables
 ==================

@@ -259,7 +259,3 @@ If changes are made to the case, you can save them in a new aux file, which is s
 
 Other objects can be read in and accessed in a similar manner-just download their aux files, and read them in.
 
-
-
-
-

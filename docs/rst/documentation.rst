@@ -1,6 +1,6 @@
 GWB Documentation
 ===================
-Use this documentation to get more in-depth information about GWB.
+Use this documentation to get more in-depth information about the GWB objects and container objects.
 
 The GWB Object
 --------------------------
@@ -24,7 +24,7 @@ To read in a PowerWorld case, use the ``wb.pwb_read_all()`` function. Make sure 
 
    Read in a PowerWorld case.
 
-   :param hush: A control to turn on or off default printout after reading in the case. set to True to turn off printout-it's set to False by default. Recommended to set to True if calling this function many times to avoid cluttered printout.
+   :param hush: A control to turn on or off the default printout after reading in the case. Set to True to turn off printout-it's set to False by default. Recommended to set hush to True if calling this function many times to avoid cluttered printout.
    :type kind: bool
    :return: None
    :rtype: None
@@ -43,7 +43,7 @@ To save changes to the local PowerWorld case, use the ``wb.esa.SaveCase()`` func
 
 .. py:function:: wb.esa.SaveCase(fname)
 
-   Save a copy of the local PowerWorld case to a new one.
+   Save a copy of the local PowerWorld case.
 
    :param fname: The directory to the new PowerWorld case.
    :type kind: str
@@ -61,6 +61,10 @@ To close a PowerWorld case, use the ``wb.close_pwb()`` function. After closing a
 
 **The following sections give more information about the container objects in GWB.** To see the hierarchy of the objects, check out :ref:`this <container>` section in the :doc:`tutorial` for more information.
 
+.. note::
+
+   In this documentation, when referring to objects in a power system, such as buses, substations, or generators, we refer to their GWB container objects.
+
 .. _region:
 
 Region Objects
@@ -70,14 +74,14 @@ A region is a very large portion of the power system. Most grids will only have 
 
 Here are some of the fields that area objects have:
 
-* areas - all the areas that are contained in the region
-* branches - all the branch objects contained in the region
-* buses - all the bus objects that are contained in the region
-* gens - all the generator objects that are contained in the region
-* loads - all the load objects that are contained in the region
-* number - the number of the region
-* shunts - all the shunts that are contained in the region
-* subs - all the substation objects that are contained in the region
+* areas - all areas contained in the region
+* branches - all branches contained in the region
+* buses - all buses contained in the region
+* gens - all generators contained in the region
+* loads - all loads contained in the region
+* number - the region's number
+* shunts - all shunts contained in the region
+* subs - all substations contained in the region
 * wb - the GWB object
 
 .. _area:
@@ -85,18 +89,18 @@ Here are some of the fields that area objects have:
 Area Objects
 --------------------
 
-Area objects comprise a large part of the power system, but are smaller than regions. They can be accessed by their number, through the workbench object, or a region object.
+Area objects comprise a large part of the power system, but are smaller than regions. They can be accessed by their number, through the workbench object, or through a region object.
 
 Here are some of the fields that areas objects have:
 
-* branches - all the branch objects contained in the area
-* buses - all the bus objects that are contained in the area
-* gens - all the generator objects that are contained in the area
-* loads - all the load objects that are contained in the area
-* number - the number of the area
+* branches - all branches contained in the area
+* buses - all buses contained in the area
+* gens - all generators contained in the area
+* loads - all loads contained in the area
+* number - the area's number
 * region - the region that contains the area
-* shunts - all the shunts that are contained in the area
-* subs - all the substation objects that are contained in the area
+* shunts - all shunts contained in the area
+* subs - all substations contained in the area
 * wb - the GWB object
 
 .. _sub:
@@ -109,15 +113,15 @@ Substation objects represent substations in the power grid. They can be accessed
 Here are some of the fields that substation objects have:
 
 * area - the area that contains the substation
-* branches - all the branch objects contained in the substation
-* buses - all the bus objects that are contained in the substation
-* gens - all the generator objects that are contained in the substation
-* latitude - latitude of the substation (some substations may not have a latitude and a longitude)
-* longitude - longitude of the substation
-* name - name of the substation
-* number - number of the substation
+* branches - all branches contained in the substation
+* buses - all buses contained in the substation
+* gens - all generators contained in the substation
+* latitude - the substation's latitude (substations do not necessarily have a latitude and a longitude)
+* longitude - the substation's longitude
+* name - the substation's name
+* number - the substation's number
 * region - the region that contains the substation
-* shunts - all the shunts that are contained in the substation
+* shunts - all shunts contained in the substation
 * wb - the GWB object
 
 .. _bus:
@@ -130,14 +134,14 @@ Buses represent electrical points in a power system, and can hold other grid obj
 Here are some of the fields that bus objects have:
 
 * area - the area that contains the bus
-* branches - all the branches contained in the bus
-* gens - all the generator objects contained in the bus
-* loads - all the load objects contained in the bus
+* branches - all branches contained in the bus
+* gens - all generator objects contained in the bus
+* loads - all load objects contained in the bus
 * nominal_kv - the nominal voltage of the bus in kilovolts
-* name - name of the bus
-* number - number of the bus
+* name - the bus' name
+* number - the bus' number
 * region - the region that contains the bus
-* shunts - all the shunts contained in the bus
+* shunts - all shunts contained in the bus
 * sub - the substation that contains the bus
 * vang - the bus' voltage angle in degrees
 * vpu - the bus' per-unit voltage
@@ -149,7 +153,7 @@ Here are some of the fields that bus objects have:
 Generator Objects
 ---------------------------
 
-Generator objects represent generators in a power system. They have real and reactive power.
+Generator objects represent generators in a power system.
 
 Here are some of the fields that generators have:
 
@@ -163,7 +167,7 @@ Here are some of the fields that generators have:
 * qmax - maximum reactive power of the generator
 * qmin - minimum reactive power of the generator
 * sbase - the apparent power base of the generator
-* status - status of the generator (tells if the generator is open or closed)
+* status - status of the generator (open or closed)
 
 .. _load:
 
@@ -200,7 +204,7 @@ Here are some of the fields that shunts have:
 Branch Objects
 ----------------------
 
-Branch objects  represent two-node objects such as transmission lines and transformers.
+Branch objects represent two-node objects such as transmission lines and transformers.
 
 Here are some of the fields that branches have:
 
@@ -212,4 +216,4 @@ Here are some of the fields that branches have:
 * from_bus - the bus on the "from" side of the branch
 * to_bus - the bus on the "to" side of the branch
 * id - the branch's circuit number
-* length - straight-line distance between "from" and "to" busses in miles
+* length - straight-line distance between "from" and "to" buses in miles
