@@ -181,8 +181,12 @@ Here are some of the fields that loads have:
 * bus - the bus containing the load
 * id - the load's ID
 * p - the load's real power
+* ps - constant power portion of MW load
 * q - the load's reactive power
+* qs - constant power portion of MVAR load
 * status - the status of the load (open or closed)
+* benefit - the load's benefit (to be used for optimization)
+
 
 .. _shunt:
 
@@ -208,11 +212,15 @@ Branch objects represent two-node objects such as transmission lines and transfo
 
 Here are some of the fields that branches have:
 
+* MVA_Limit_A - limit set A
+* MVA_Limit_B - limit set B
+* MVA_Limit_C - limit set C
 * B - per-unit susceptance
 * G - per-unit conductance
 * R - per-unit resistance
 * X - per-unit reactance
 * branch_device_type - the branch device type (transformer or transmission line)
+* connected - whether or not the branch is part of the case (has a value of False when the branch is not included in the PowerWorld case)
 * from_bus - the bus on the "from" side of the branch
 * to_bus - the bus on the "to" side of the branch
 * id - the branch's circuit number
