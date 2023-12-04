@@ -47,9 +47,9 @@
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">GWB Documentation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Making Changes to GWB Documentation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#setting-up-sphinx">Setting Up Sphinx</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#setting-up-to-make-changes">Setting Up to Make Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-local-computer-for-file-editing">Preparing Local Computer for File Editing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#making-changes-to-files">Making Changes to Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rebuilding-the-project-implementing-changes">Rebuilding the Project / Implementing Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rebuilding-the-project">Rebuilding the Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sending-changes-to-github">Sending Changes To Github</a></li>
 </ul>
 </li>
@@ -81,27 +81,25 @@
              
   <section id="making-changes-to-gwb-documentation">
 <h1>Making Changes to GWB Documentation<a class="headerlink" href="#making-changes-to-gwb-documentation" title="Link to this heading"></a></h1>
-<p>Making changes to GWB is not simple. You cannot just edit the files in github: the changes will not be reflected in the webpage.</p>
-<p>This documentation was created using Sphinx documentation and is written in reStructuredText. It could be very helpful to check out the <a class="reference external" href="https://www.sphinx-doc.org/en/master/tutorial/getting-started.html">Sphinx Documentation Tutorial</a> and <a class="reference external" href="https://docutils.sourceforge.io/rst.html#user-documentation/">reStructuredText Documentation</a> to help you understand how to make edits to the documentation.</p>
+<p>This documentation was created using “Sphinx” documentation and is written in “reStructuredText.” It could be very helpful to check out the <a class="reference external" href="https://www.sphinx-doc.org/en/master/tutorial/getting-started.html">Sphinx Documentation Tutorial</a> and <a class="reference external" href="https://docutils.sourceforge.io/rst.html#user-documentation/">reStructuredText Documentation</a> to help you understand how to make edits to the documentation.</p>
 <p>GWB documentation is edited by doing the following:</p>
 <ol class="arabic simple">
-<li><p>Download the file you want to change locally (ex: download the examples.rst file if you want to change the “examples” page)</p></li>
 <li><p>Setup Spinx</p></li>
-<li><p>Setup for making changes</p></li>
+<li><p>Prepare local computer to make changes</p></li>
 <li><p>Make changes to the file</p></li>
-<li><p>Rebuild the project / Implement Changes</p></li>
+<li><p>Rebuild the project</p></li>
 <li><p>Send changes to GitHub</p></li>
 </ol>
 <section id="setting-up-sphinx">
 <h2>Setting Up Sphinx<a class="headerlink" href="#setting-up-sphinx" title="Link to this heading"></a></h2>
-<p>Make a new folder to store the documentation. Then, open the command line terminal (this could also be done in the terminal if you have PyCharm). Then, cd into the folder that you just created and run the following commands:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; python-m .venv .venv</span>
+<p>Make a new folder on your local computer to store the documentation. Then, open the command line terminal (this could also be done in the terminal in PyCharm). Then, cd into the folder that you just created and run the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; python-m venv .venv</span>
 <span class="go">&gt; activate</span>
 <span class="go">&gt; python -m pip install sphinx</span>
 <span class="go">&gt; sphinx-quickstart docs</span>
 </pre></div>
 </div>
-<p>You will presented a series of questions to create the basic directory and configuration layout for your project inside the docs folder. To proceed, answer each questions as follows:</p>
+<p>You will presented a series of questions to create the basic directory and configuration layout for your project inside the docs folder. To proceed, answer each question as follows:</p>
 <ul class="simple">
 <li><p>Separate source and build directories (y/n) [n]: Write “y” (without quotes) and press Enter.</p></li>
 <li><p>Project name: Write “GridWorkbench” (without quotes) and press Enter.</p></li>
@@ -115,8 +113,8 @@
 </div>
 <p>Consult <a class="reference external" href="https://www.sphinx-doc.org/en/master/tutorial/getting-started.html">Sphinx Documentation Tutorial</a> for more information on setting up Sphinx.</p>
 </section>
-<section id="setting-up-to-make-changes">
-<h2>Setting Up to Make Changes<a class="headerlink" href="#setting-up-to-make-changes" title="Link to this heading"></a></h2>
+<section id="preparing-local-computer-for-file-editing">
+<h2>Preparing Local Computer for File Editing<a class="headerlink" href="#preparing-local-computer-for-file-editing" title="Link to this heading"></a></h2>
 <p>The following steps must be done before making changes to files:</p>
 <ul class="simple">
 <li><p>Download the docs folder from GitHub to your computer.</p></li>
@@ -137,8 +135,8 @@
 </div>
 <p>Then, open up the file to be edited and make changes. Again, you may find <a class="reference external" href="https://www.sphinx-doc.org/en/master/tutorial/getting-started.html">Sphinx Documentation Tutorial</a> useful for formatting the webpage and for other help.</p>
 </section>
-<section id="rebuilding-the-project-implementing-changes">
-<h2>Rebuilding the Project / Implementing Changes<a class="headerlink" href="#rebuilding-the-project-implementing-changes" title="Link to this heading"></a></h2>
+<section id="rebuilding-the-project">
+<h2>Rebuilding the Project<a class="headerlink" href="#rebuilding-the-project" title="Link to this heading"></a></h2>
 <p>Once you’ve edited the file, go to the terminal and cd to the “docs” folder. Run the following line of code to implement your changes:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; .\make html</span>
 </pre></div>
@@ -152,7 +150,7 @@
 <li><p>Empty the doctrees folder in the GitHub desktop folder, and replace with the local doctrees folder under “build.”</p></li>
 <li><p>Empty the html folder in the GitHub desktop folder, and replace with the local html folder under “build.”</p></li>
 <li><p>Empty the rst folder in the GitHub desktop folder, and replace with the local “source” folder. Also copy the makefile from the local docs folder to the GitHub rst folder.</p></li>
-<li><p>Commit and publish changes using GitHub desktop.</p></li>
+<li><p>Commit and Push changes using GitHub desktop.</p></li>
 </ul>
 </section>
 </section>

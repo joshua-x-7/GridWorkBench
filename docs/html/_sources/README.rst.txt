@@ -1,32 +1,29 @@
 Making Changes to GWB Documentation
 =====================================
 
-Making changes to GWB is not simple. You cannot just edit the files in github: the changes will not be reflected in the webpage.
-
-This documentation was created using Sphinx documentation and is written in reStructuredText. It could be very helpful to check out the `Sphinx Documentation Tutorial <https://www.sphinx-doc.org/en/master/tutorial/getting-started.html>`_ and `reStructuredText Documentation <https://docutils.sourceforge.io/rst.html#user-documentation/>`_ to help you understand how to make edits to the documentation.
+This documentation was created using "Sphinx" documentation and is written in "reStructuredText." It could be very helpful to check out the `Sphinx Documentation Tutorial <https://www.sphinx-doc.org/en/master/tutorial/getting-started.html>`_ and `reStructuredText Documentation <https://docutils.sourceforge.io/rst.html#user-documentation/>`_ to help you understand how to make edits to the documentation.
 
 GWB documentation is edited by doing the following:
 
-#. Download the file you want to change locally (ex: download the examples.rst file if you want to change the "examples" page)
 #. Setup Spinx
-#. Setup for making changes
+#. Prepare local computer to make changes
 #. Make changes to the file
-#. Rebuild the project / Implement Changes
+#. Rebuild the project
 #. Send changes to GitHub
 
 Setting Up Sphinx
 ---------------------------
 
-Make a new folder to store the documentation. Then, open the command line terminal (this could also be done in the terminal if you have PyCharm). Then, cd into the folder that you just created and run the following commands:
+Make a new folder on your local computer to store the documentation. Then, open the command line terminal (this could also be done in the terminal in PyCharm). Then, cd into the folder that you just created and run the following commands:
 
 .. code-block:: console
 
-    > python-m .venv .venv
+    > python-m venv .venv
     > activate
     > python -m pip install sphinx
     > sphinx-quickstart docs
 
-You will presented a series of questions to create the basic directory and configuration layout for your project inside the docs folder. To proceed, answer each questions as follows:
+You will presented a series of questions to create the basic directory and configuration layout for your project inside the docs folder. To proceed, answer each question as follows:
 
 * Separate source and build directories (y/n) [n]: Write “y” (without quotes) and press Enter.
 * Project name: Write “GridWorkbench” (without quotes) and press Enter.
@@ -42,8 +39,8 @@ Run the following line of code to create an html page:
 
 Consult `Sphinx Documentation Tutorial <https://www.sphinx-doc.org/en/master/tutorial/getting-started.html>`_ for more information on setting up Sphinx.
 
-Setting Up to Make Changes
-----------------------------------------
+Preparing Local Computer for File Editing
+------------------------------------------------------------
 
 The following steps must be done before making changes to files:
 
@@ -52,7 +49,6 @@ The following steps must be done before making changes to files:
 * Transfer all rst files and pictures from the rst folder from the Github page to the local source folder. Do the same with the local rst folder.
 * Delete all files in the local project's doctrees folder and replace the files with the files from the GitHub doctrees folder.
 * Delete all files in the local html folder in the build folder and replace with the html folder from GitHub.
-
 
 Making Changes to Files
 ------------------------------------
@@ -69,9 +65,8 @@ The toctree section should look similar to the following:
 
 Then, open up the file to be edited and make changes. Again, you may find `Sphinx Documentation Tutorial <https://www.sphinx-doc.org/en/master/tutorial/getting-started.html>`_ useful for formatting the webpage and for other help.
 
-
-Rebuilding the Project / Implementing Changes
----------------------------------------------------------------------
+Rebuilding the Project
+----------------------------------
 
 Once you've edited the file, go to the terminal and cd to the "docs" folder. Run the following line of code to implement your changes:
 
@@ -89,4 +84,4 @@ To send the changes to Github, do the following in the GridWorkbench folder in y
 * Empty the doctrees folder in the GitHub desktop folder, and replace with the local doctrees folder under "build."
 * Empty the html folder in the GitHub desktop folder, and replace with the local html folder under "build."
 * Empty the rst folder in the GitHub desktop folder, and replace with the local "source" folder. Also copy the makefile from the local docs folder to the GitHub rst folder.
-* Commit and publish changes using GitHub desktop.
+* Commit and Push changes using GitHub desktop.

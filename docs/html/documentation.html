@@ -19,6 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Making Changes to GWB Documentation" href="README.html" />
     <link rel="prev" title="Examples" href="examples.html" /> 
 </head>
 
@@ -63,6 +64,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#branch-objects">Branch Objects</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Making Changes to GWB Documentation</a></li>
 </ul>
 
         </div>
@@ -282,8 +284,11 @@
 <li><p>bus - the bus containing the load</p></li>
 <li><p>id - the load’s ID</p></li>
 <li><p>p - the load’s real power</p></li>
+<li><p>ps - constant power portion of MW load</p></li>
 <li><p>q - the load’s reactive power</p></li>
+<li><p>qs - constant power portion of MVAR load</p></li>
 <li><p>status - the status of the load (open or closed)</p></li>
+<li><p>benefit - the load’s benefit (to be used for optimization)</p></li>
 </ul>
 </section>
 <section id="shunt-objects">
@@ -303,11 +308,15 @@
 <p>Branch objects represent two-node objects such as transmission lines and transformers.</p>
 <p>Here are some of the fields that branches have:</p>
 <ul class="simple">
+<li><p>MVA_Limit_A - limit set A</p></li>
+<li><p>MVA_Limit_B - limit set B</p></li>
+<li><p>MVA_Limit_C - limit set C</p></li>
 <li><p>B - per-unit susceptance</p></li>
 <li><p>G - per-unit conductance</p></li>
 <li><p>R - per-unit resistance</p></li>
 <li><p>X - per-unit reactance</p></li>
 <li><p>branch_device_type - the branch device type (transformer or transmission line)</p></li>
+<li><p>connected - whether or not the branch is part of the case (has a value of False when the branch is not included in the PowerWorld case)</p></li>
 <li><p>from_bus - the bus on the “from” side of the branch</p></li>
 <li><p>to_bus - the bus on the “to” side of the branch</p></li>
 <li><p>id - the branch’s circuit number</p></li>
@@ -321,6 +330,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="README.html" class="btn btn-neutral float-right" title="Making Changes to GWB Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
